@@ -17,7 +17,10 @@ body {
 
 button {
   border-radius: 1em;
+  border-width: 1px;
   padding: 1em 4em;
+  color: var(--snow);
+  background-color: var(--purple);
 }
 
 button.big {
@@ -25,10 +28,17 @@ button.big {
   background-color: var(--purple);
 }
 
+button.small {
+  font-size: 12px;
+  padding: 0.5em 1.5em;
+  background: var(--snow);
+  color: var(--blue);
+}
+
 main {
   position: relative;
   background-color: var(--snow);
-  width: 550px;
+  width: 700px;
   border-radius: 30px;
   aspect-ratio: 1;
   display: flex;
@@ -36,6 +46,15 @@ main {
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+}
+
+main > .questions {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.check-answers {
+  margin-top: 2rem;
 }
 
 .blue-shape {
@@ -56,6 +75,10 @@ h1 {
   font-family: 'Karla', sans-serif;
 }
 
+h2 {
+  font-size: 1rem;
+}
+
 p {
   font-weight: 400;
   font-family: 'Inter';
@@ -63,4 +86,10 @@ p {
 
 .start-game {
   margin-top: 1rem;
+}
+
+.answers {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }

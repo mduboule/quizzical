@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --black: #1C1C1C;
+  --blue: #293264;
+  --purple: #4D5B9E;
+  --snow: #F5F7FB;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: var(--black);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+button {
+  border-radius: 1em;
+  padding: 1em 4em;
+}
+
+button.big {
+  color: var(--snow);
+  background-color: var(--purple);
+}
+
+main {
+  position: relative;
+  background-color: var(--snow);
+  width: 550px;
+  border-radius: 30px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.blue-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.yellow-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-family: 'Karla', sans-serif;
+}
+
+p {
+  font-weight: 400;
+  font-family: 'Inter';
+}
+
+.start-game {
+  margin-top: 1rem;
 }

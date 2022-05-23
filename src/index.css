@@ -1,8 +1,11 @@
 :root {
   --black: #1C1C1C;
   --blue: #293264;
+  --lavender: #D6DBF5;
   --purple: #4D5B9E;
   --snow: #F5F7FB;
+
+  --main-box-radius: 30px;
 }
 
 body {
@@ -35,22 +38,56 @@ button.small {
   color: var(--blue);
 }
 
-main {
-  position: relative;
+button.selected {
+  background: var(--lavender);
+  border-color: var(--lavender);
+}
+
+#root {
+  width: 660px;
+  padding: 20px;
   background-color: var(--snow);
-  width: 700px;
-  border-radius: 30px;
+  border-radius: var(--main-box-radius);
   aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+
+}
+
+#root::before {
+  content: "";
+  background: url('/src/images/blue.png');
+  border-bottom-left-radius: var(--main-box-radius);
+  width: 148px;
+  height: 118px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#root::after {
+  content: "";
+  background: url('/src/images/yellow.png');
+  border-top-right-radius: var(--main-box-radius);
+  width: 194px;
+  height: 197px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  max-width: 580px;
   flex-direction: column;
   overflow: hidden;
+  z-index: 1;
 }
 
 main > .questions {
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 .check-answers {

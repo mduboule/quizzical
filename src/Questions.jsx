@@ -1,18 +1,19 @@
 import he from 'he'
 import { nanoid } from 'nanoid'
 import Answers from './Answers'
+import { useState } from 'react'
 
 const Questions = props => {
   const questionsAnswersElm = props.questions.map(questionAnswer => {
-    const allAnswers = [questionAnswer.correct_answer, ...questionAnswer.incorrect_answers]
     return (
       <div className="question" key={nanoid()}>
         <h2>{he.decode(questionAnswer.question)}</h2>
         <Answers
-          selectAnswer={props.selectAnswer}
+          handleSelectAnswer={props.handleSelectAnswer}
           playerAnswers={props.playerAnswers}
-          question={questionAnswer.question}
-          allAnswers={allAnswers} />
+          showAnswers={props.showAnswers}
+          questionAnswer={questionAnswer}
+        />
       </div>
     )
   })

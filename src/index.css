@@ -1,9 +1,11 @@
 :root {
-  --black: #1C1C1C;
+  --black: #1c1c1c;
   --blue: #293264;
-  --lavender: #D6DBF5;
-  --purple: #4D5B9E;
-  --snow: #F5F7FB;
+  --lavender: #d6dbf5;
+  --purple: #4d5b9e;
+  --snow: #f5f7fb;
+  --green: #94d7a2;
+  --salmon: #f8bcbc;
 
   --main-box-radius: 30px;
 }
@@ -41,6 +43,18 @@ button.small {
 button.selected {
   background: var(--lavender);
   border-color: var(--lavender);
+}
+
+button.succeeded {
+  background: var(--green);
+}
+
+button.failed {
+  background: var(--salmon);
+}
+
+button.wrong-answer {
+  opacity: 0.5;
 }
 
 #root {

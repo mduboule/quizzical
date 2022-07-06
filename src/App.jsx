@@ -4,19 +4,15 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [gameOn, setGameOn] = useState(false)
+  const [showAnswers, setShowAnswers] = useState(false)
   const [questions, setQuestions] = useState([])
   const [playerAnswers, setPlayerAnswers] = useState([])
 
   function startGame() {
-    console.log("setGameOn")
     setGameOn(true)
   }
 
-  useEffect(() => {
-    console.log(playerAnswers)
-  }, [playerAnswers])
-
-  function selectAnswer(question, answer) {
+  function handleSelectAnswer(question, answer) {
     setPlayerAnswers(prevAnswers => {
       const newAnswers = [...prevAnswers]
       const questionExists = newAnswers.find(answer => answer.question === question)
@@ -36,12 +32,28 @@ function App() {
     })
   }
 
+  function randomizeAnswers() {
+    setQuestions(prevQuestions => (
+      prevQuestions.map(question => (
+        {
+          ...question,
+          randomized_answers: [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.5)
+        }
+      ))
+    ))
+  }
+
+  function checkAnswers() {
+    setShowAnswers(true)
+  }
+
   useEffect(() => {
     console.log("fetching questions")
     const fetchQuestions = async () => {
       const result = await fetch('https://opentdb.com/api.php?amount=5')
       const data = await result.json()
       setQuestions(data.results)
+      randomizeAnswers()
     }
     fetchQuestions()
   }, [])
@@ -55,9 +67,10 @@ function App() {
             <Questions
               questions={questions}
               playerAnswers={playerAnswers}
-              selectAnswer={selectAnswer}
+              handleSelectAnswer={handleSelectAnswer}
+              showAnswers={showAnswers}
             />
-            <button className='medium check-answers'>Check answers</button>
+            <button className='medium check-answers' onClick={checkAnswers}>Check answers</button>
           </>
         }
       </main>
